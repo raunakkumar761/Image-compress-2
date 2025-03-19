@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tools for image and PDF processing. Compress images, convert PDFs, and optimize your files with our web tools.">
+    <title>Digital Tools Hub - Image & PDF Utilities</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #4f46e5;
+            --accent: #8b5cf6;
+            --background: #f8fafc;
+            --text: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Home Page Styles */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0 0 2rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Image Compression Tool Page */
+        .compression-tool {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .file-dropzone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .file-dropzone.active {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .compression-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .preview-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .preview-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        /* Ads */
+        .ad-unit {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .compression-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div class="home-page">
+        <header class="header">
+            <h1>Digital Tools Hub</h1>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#image-tools">Image Tools</a>
+                <a href="#pdf-tools">PDF Tools</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="ad-unit">
+                <!-- Google AdSense Header Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <section class="tool-categories">
+                <h2>Image Tools</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <i class="tool-icon fas fa-file-image"></i>
+                        <h3>Image Compressor</h3>
+                        <p>Reduce image file size while maintaining quality</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="tool-icon fas fa-exchange-alt"></i>
+                        <h3>Image Converter</h3>
+                        <p>Convert between JPG, PNG, and WebP formats</p>
+                    </div>
+                </div>
+
+                <h2>PDF Tools</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <i class="tool-icon fas fa-file-pdf"></i>
+                        <h3>PDF Compressor</h3>
+                        <p>Reduce PDF file size without quality loss</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="tool-icon fas fa-file-export"></i>
+                        <h3>PDF to Word</h3>
+                        <p>Convert PDF documents to editable Word files</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Image Compression Tool Page -->
+    <div class="container" id="compression-tool" style="display: none;">
+        <div class="compression-tool">
+            <h2>Image Compressor</h2>
+            <div class="file-dropzone" id="dropZone">
+                <p>Drag & drop image or click to upload</p>
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </div>
+
+            <div class="compression-controls">
+                <label>Compression Quality:</label>
+                <input type="range" id="qualityRange" min="0" max="1" step="0.1" value="0.8">
+                <span id="qualityValue">80%</span>
+            </div>
+
+            <div class="preview-container">
+                <div class="preview-card">
+                    <h3>Original Image</h3>
+                    <img id="originalPreview" class="preview-image">
+                    <p id="originalSize">Size: -</p>
+                </div>
+                <div class="preview-card">
+                    <h3>Compressed Image</h3>
+                    <img id="compressedPreview" class="preview-image">
+                    <p id="compressedSize">Size: -</p>
+                    <button id="downloadBtn" class="download-button">Download</button>
+                </div>
+            </div>
+
+            <div class="ad-unit">
+                <!-- Google AdSense Footer Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="0987654321"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tool Navigation
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelector('.home-page').style.display = 'none';
+                document.getElementById('compression-tool').style.display = 'block';
+            });
+        });
+
+        // Image Compression Logic
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('imageInput');
+        
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', handleFileSelect);
+        dropZone.addEventListener('dragover', handleDragOver);
+        dropZone.addEventListener('drop', handleFileDrop);
+
+        async function handleFileSelect(e) {
+            const file = e.target.files[0];
+            await processImage(file);
+        }
+
+        async function handleFileDrop(e) {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            await processImage(file);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            dropZone.classList.add('active');
+        }
+
+        async function processImage(file) {
+            // Image processing logic here
+        }
+
+        // Initialize AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</body>
+</html>
